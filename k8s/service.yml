@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ruoyi-service
+  labels:
+    app: ruoyi-service
+spec:
+  type: NodePort
+  ports:
+    - name: server
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
+  selector:
+    app: ruoyi-vue

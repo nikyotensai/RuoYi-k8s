@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ruoyi-vue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ruoyi-vue
+  template:
+    metadata:
+      labels:
+        app: ruoyi-vue
+    spec:
+      containers:
+        - name: ruoyi-vue
+          image: nikyotensai/ruoyi-vue:3.8.5-beta1
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+            - name: MYSQL_HOST
+              value: 'localhost:3306'
+            - name: SPRING_REDIS_HOST
+              value: 'localhost'
